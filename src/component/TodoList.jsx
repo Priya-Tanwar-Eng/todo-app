@@ -12,6 +12,9 @@ const TodoList = ({state, dispatch}) => {
               state.map((todo)=>(
                 <li key={todo.id}>
                     <span style={{textDecoration: todo.complete ? "line-through" : "none"}}>{todo.title}</span>
+                    <button onClick={()=>dispatch({type:"UPDATE_TODO", id: todo.id})}>
+                        {todo.complete ? "Completed" : "Complete"}
+                    </button>
                 </li>
               ))
             }
