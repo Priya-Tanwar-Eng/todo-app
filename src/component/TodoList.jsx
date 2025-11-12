@@ -7,12 +7,12 @@ const TodoList = ({state, dispatch}) => {
         {
             state.length === 0 ? <p>No todos available</p> : null
         }
-         <ol>
+         <ol style={{listStyleType:"decimal", textAlign:"left", display:"inline-block"}}>
             {
               state.map((todo)=>(
-                <li key={todo.id}>
+                <li key={todo.id} style={{marginBottom:"10px"}}>
                     <span style={{textDecoration: todo.complete ? "line-through" : "none"}}>{todo.title}</span>
-                    <button onClick={()=>dispatch({type:"UPDATE_TODO", id: todo.id})}>
+                    <button onClick={()=>dispatch({type:"UPDATE_TODO", id: todo.id})} style={{marginLeft:"10px", marginRight:"10px"}}>
                         {todo.complete ? "Completed" : "Complete"}
                     </button>
                     <button onClick={()=>dispatch({type:"REMOVE_TODO", id: todo.id})}>Remove</button>
@@ -21,7 +21,6 @@ const TodoList = ({state, dispatch}) => {
             }
          </ol>
 
-         <button onClick={() => dispatch({ type: "CLEAR_ALL" })}>Clear All</button>
 
     </div>
   )

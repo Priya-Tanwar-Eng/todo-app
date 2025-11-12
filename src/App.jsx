@@ -29,7 +29,7 @@ const App = () => {
     localStorage.setItem("todos", JSON.stringify(state));
   }, [state]);
   return (
-    <div>
+    <div style={{textAlign:"center"}}>
       <h1>Todo App</h1>
       <TodoForm dispatch={dispatch}/>
       <TodoList state={state} dispatch={dispatch}/>

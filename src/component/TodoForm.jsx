@@ -13,7 +13,9 @@ const TodoForm = ({dispatch}) => {
   return (
     <div>
      <input type='text' placeholder='enter todo' value={todo} onChange={(e)=>setTodo(e.target.value)}/> 
-     <button onClick={handleAdd}>Add</button>
+     <button onClick={handleAdd} style={{marginLeft:"10px"}}>Add</button>
+     <button onClick={() => dispatch({ type: "CLEAR_ALL" })} style={{marginLeft:"10px"}}>Clear All</button>
+
     </div>
   )
 }
