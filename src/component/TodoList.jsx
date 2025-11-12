@@ -15,6 +15,7 @@ const TodoList = ({state, dispatch}) => {
                     <button onClick={()=>dispatch({type:"UPDATE_TODO", id: todo.id})}>
                         {todo.complete ? "Completed" : "Complete"}
                     </button>
+                    <button onClick={()=>dispatch({type:"REMOVE_TODO", id: todo.id})}>Remove</button>
                 </li>
               ))
             }
