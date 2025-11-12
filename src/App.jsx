@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer, useState , useEffect} from 'react'
 import TodoForm from './component/TodoForm'
 import TodoList from './component/TodoList'
 
@@ -15,14 +15,19 @@ const todoReducer = (state, action) => {
           return {...todo, complete:!todo.complete}
         }
          return todo
-      })   
+      }) 
+     case "CLEAR_ALL":
+       return [];   
     default:
       return state  
    }
 }
 const App = () => {
- const [state, dispatch] = useReducer(todoReducer, []);
- console.log(state)
+  const initialTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  const [state, dispatch] = useReducer(todoReducer, initialTodos);
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(state));
+  }, [state]);
   return (
     <div>
       <h1>Todo App</h1>

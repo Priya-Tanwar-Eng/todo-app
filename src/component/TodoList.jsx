@@ -20,6 +20,9 @@ const TodoList = ({state, dispatch}) => {
               ))
             }
          </ol>
+
+         <button onClick={() => dispatch({ type: "CLEAR_ALL" })}>Clear All</button>
+
     </div>
   )
 }

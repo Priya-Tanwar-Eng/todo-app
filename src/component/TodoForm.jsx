@@ -8,7 +8,7 @@ const TodoForm = ({dispatch}) => {
       return;
       }
      dispatch({ type: "ADD_TODO", title: todo });
-      setTodo(""); // Clear input after adding
+      setTodo("");
      };
   return (
     <div>
